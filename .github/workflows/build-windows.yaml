@@ -12,11 +12,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+
       - name: Setup
         run: sudo apt install -y tree g++-mingw-w64
 
       - name: Build Orthanc
-
         run: |
           mkdir Build
           cd Build
