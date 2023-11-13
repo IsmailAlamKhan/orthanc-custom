@@ -16,7 +16,7 @@ jobs:
 
       - name: Build plugin (32-bit)
         run: |
-          mkdir /build
+          mkdir build
           cd /build
           cmake ../OrthancServer \
                     -DCMAKE_BUILD_TYPE=Debug \
