@@ -22,7 +22,7 @@ jobs:
           cd Build
             cmake ../OrthancServer \
                     -DCMAKE_BUILD_TYPE=Release \
-                    -DCMAKE_TOOLCHAIN_FILE=./OrthancServer/Resources/MinGW-W64-Toolchain32.cmake \
+                    -DCMAKE_TOOLCHAIN_FILE=../OrthancServer/Resources/MinGW-W64-Toolchain32.cmake \
                     -DSTANDALONE_BUILD=ON \
                     -DSTATIC_BUILD=ON \
                     -DUSE_LEGACY_JSONCPP=ON
