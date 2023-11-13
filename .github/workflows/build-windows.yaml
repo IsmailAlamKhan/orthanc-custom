@@ -1,0 +1,30 @@
+name: build_orthanc
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [master]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup
+        run: sudo apt install -y tree g++-mingw-w64
+
+      - name: Build plugin (32-bit)
+        run: |
+          mkdir build
+          cd /build
+          cmake ../OrthancServer \
+                    -DCMAKE_BUILD_TYPE=Debug \
+                    -DCMAKE_TOOLCHAIN_FILE=~/Orthanc/Resources/MinGWToolchain.cmake \
+                    -DSTANDALONE_BUILD=ON \
+                    -DSTATIC_BUILD=ON \
+                    -DDCMTK_STATIC_VERSION=3.6.0 \
+                    -DUSE_LEGACY_JSONCPP=ON
+          make
+
+      - name: List files
+        run: tree build
