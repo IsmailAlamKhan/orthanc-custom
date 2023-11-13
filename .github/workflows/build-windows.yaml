@@ -15,17 +15,16 @@ jobs:
       - name: Setup
         run: sudo apt install -y tree g++-mingw-w64
 
-      - name: Build plugin (32-bit)
+      - name: Build Orthanc
 
         run: |
           mkdir Build
           cd Build
-          cmake ../OrthancServer \
-                    -DCMAKE_BUILD_TYPE=Debug \
-                    -DCMAKE_TOOLCHAIN_FILE=~/Orthanc/Resources/MinGWToolchain.cmake \
+            cmake ../OrthancServer \
+                    -DCMAKE_BUILD_TYPE=Release \
+                    -DCMAKE_TOOLCHAIN_FILE=~/Orthanc/Resources/MinGW-W64-Toolchain32.cmake \
                     -DSTANDALONE_BUILD=ON \
                     -DSTATIC_BUILD=ON \
-                    -DDCMTK_STATIC_VERSION=3.6.0 \
                     -DUSE_LEGACY_JSONCPP=ON
           make
 
