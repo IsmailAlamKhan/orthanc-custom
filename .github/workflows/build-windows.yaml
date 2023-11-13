@@ -18,7 +18,7 @@ jobs:
         run: |
           mkdir build
           cd build
-          cmake ../OrthancServer \
+          cmake /OrthancServer \
                     -DCMAKE_BUILD_TYPE=Debug \
                     -DCMAKE_TOOLCHAIN_FILE=~/Orthanc/Resources/MinGWToolchain.cmake \
                     -DSTANDALONE_BUILD=ON \
